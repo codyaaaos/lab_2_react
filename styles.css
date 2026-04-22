@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #e9eef3;
+  color: #1f2937;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.cv-card {
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+}
+
+.sidebar {
+  background: linear-gradient(180deg, #0f172a, #1e293b);
+  color: white;
+  padding: 30px 24px;
+}
+
+.profile h1 {
+  font-size: 34px;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.role {
+  font-size: 15px;
+  color: #dbeafe;
+  margin-bottom: 14px;
+}
+
+.contact {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.contact a {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+.sidebar-block {
+  margin-top: 28px;
+}
+
+.block-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+  color: #bfdbfe;
+}
+
+.skills-list,
+.language-list {
+  padding-left: 18px;
+}
+
+.skills-list li,
+.language-list li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.language-list span {
+  color: #cbd5e1;
+}
+
+.content {
+  padding: 30px 34px;
+}
+
+.section {
+  margin-bottom: 28px;
+}
+
+.section h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #111827;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 8px;
+}
+
+.section p {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.7;
+}
+
+.experience-list {
+  display: grid;
+  gap: 14px;
+}
+
+.experience-card {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-left: 4px solid #1d4ed8;
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.experience-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.experience-card p {
+  color: #475569;
+  font-size: 15px;
+}
+
+.footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+@media (max-width: 780px) {
+  .cv-card {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar,
+  .content {
+    padding: 24px 20px;
+  }
+
+  .profile h1 {
+    font-size: 28px;
+  }
+}
