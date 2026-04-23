@@ -1,90 +1,550 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="day">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV - Костюк Дмитро Васильович</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>CV - Костюк Дмитро</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --page-bg: #eef2f7;
+      --card-bg: #ffffff;
+      --sidebar-bg: #0f172a;
+      --sidebar-secondary: #1e293b;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --border-color: #e2e8f0;
+      --review-bg: #f8fafc;
+      --modal-bg: rgba(15, 23, 42, 0.55);
+    }
+
+    [data-theme="night"] {
+      --page-bg: #020617;
+      --card-bg: #111827;
+      --sidebar-bg: #020617;
+      --sidebar-secondary: #111827;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #60a5fa;
+      --accent-soft: #1e3a8a;
+      --border-color: #334155;
+      --review-bg: #1e293b;
+      --modal-bg: rgba(2, 6, 23, 0.75);
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--page-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      transition: background 0.3s ease, color 0.3s ease;
+      padding: 32px 16px;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--text-main);
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14);
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+    }
+
+    .sidebar {
+      background: linear-gradient(180deg, var(--sidebar-bg), var(--sidebar-secondary));
+      color: white;
+      padding: 32px 24px;
+    }
+
+    .profile h1 {
+      font-size: 42px;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .profile p {
+      margin-bottom: 10px;
+    }
+
+    .role {
+      font-size: 20px;
+      font-weight: 700;
+      color: #dbeafe;
+    }
+
+    .contact {
+      font-size: 15px;
+      color: #cbd5e1;
+    }
+
+    .contact a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    .sidebar-section {
+      margin-top: 30px;
+    }
+
+    .sidebar-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #bfdbfe;
+      margin-bottom: 14px;
+    }
+
+    .tag-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .tag-list li {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 10px 12px;
+      color: #e2e8f0;
+      font-size: 14px;
+    }
+
+    .language-list {
+      padding-left: 18px;
+      color: #e2e8f0;
+    }
+
+    .language-list li {
+      margin-bottom: 8px;
+    }
+
+    .content {
+      padding: 34px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .headline {
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--text-main);
+    }
+
+    .about-text {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 760px;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .experience-card {
+      background: var(--review-bg);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent);
+      border-radius: 16px;
+      padding: 18px 20px;
+    }
+
+    .experience-card h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .experience-card p {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    .reviews-section,
+    footer {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .review-card {
+      background: var(--review-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+    }
+
+    .review-author {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+
+    .review-email {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .review-body {
+      color: var(--text-main);
+      font-size: 15px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .sysinfo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      background: var(--review-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .sysinfo-item h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .sysinfo-item p {
+      font-size: 14px;
+      color: var(--text-main);
+      word-break: break-word;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--modal-bg);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 200;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 460px;
+      background: var(--card-bg);
+      color: var(--text-main);
+      border-radius: 18px;
+      padding: 24px;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .modal-content h2 {
+      color: var(--accent);
+      margin-bottom: 18px;
+      font-size: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      background: var(--page-bg);
+      color: var(--text-main);
+      font: inherit;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      padding: 13px 14px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 860px) {
+      .top {
+        grid-template-columns: 1fr;
+      }
+
+      .profile h1 {
+        font-size: 34px;
+      }
+
+      .content {
+        padding: 24px 20px;
+      }
+
+      .sidebar {
+        padding: 24px 20px;
+      }
+
+      .headline {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="page-shell">
-    <article class="cv-card">
+  <button class="theme-toggle" id="themeBtn">Тема: авто</button>
+
+  <div class="container">
+    <div class="top">
       <aside class="sidebar">
-        <header class="profile">
+        <div class="profile">
           <h1>Костюк Дмитро Васильович</h1>
           <p class="role">Фахівець з OSINT та аналізу витоків даних</p>
-          <p class="contact">
-            Львів, Україна |
-            <a href="mailto:codycraciun@gmail.com">codycraciun@gmail.com</a>
-          </p>
-        </header>
+          <p class="contact">Львів, Україна</p>
+          <p class="contact"><a href="mailto:codycraciun@gmail.com">codycraciun@gmail.com</a></p>
+        </div>
 
-        <section class="sidebar-block">
-          <h2 class="block-title">Навички</h2>
-          <ul class="skills-list">
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Навички</h2>
+          <ul class="tag-list">
             <li>OSINT: пошук у відкритих джерелах</li>
-            <li>Аналіз витоків та структури записів</li>
-            <li>HTML, CSS, Git, GitHub, VS Code</li>
+            <li>Аналіз витоків даних і структури записів</li>
+            <li>HTML, CSS, JavaScript, Git, GitHub</li>
             <li>Windows, Linux</li>
           </ul>
         </section>
 
-        <section class="sidebar-block">
-          <h2 class="block-title">Мови</h2>
+        <section class="sidebar-section">
+          <h2 class="sidebar-title">Володіння мовами</h2>
           <ol class="language-list">
-            <li>Українська <span>— рідна</span></li>
-            <li>Англійська <span>— технічна</span></li>
+            <li>Українська — рідна</li>
+            <li>Англійська — технічна</li>
           </ol>
         </section>
       </aside>
 
       <main class="content">
         <section class="section">
-          <h2>Про мене</h2>
-          <p>
-            Початківець у сфері кібербезпеки, який цікавиться OSINT, аналізом витоків
-            даних, перевіркою відкритих джерел та виявленням цифрових слідів. Маю
-            інтерес до дослідження інформації з публічних джерел, структурування даних
-            і базового аналізу інцидентів, пов’язаних із безпекою інформації.
+          <p class="section-title">Про мене</p>
+          <h2 class="headline">Коротко про мій напрям</h2>
+          <p class="about-text">
+            Початківець у сфері кібербезпеки, який цікавиться OSINT, аналізом витоків даних,
+            перевіркою відкритих джерел та виявленням цифрових слідів. Маю інтерес до
+            дослідження інформації з публічних джерел, структурування даних і базового
+            аналізу інцидентів, пов’язаних із безпекою інформації.
           </p>
         </section>
 
         <section class="section">
-          <h2>Досвід та практика</h2>
+          <p class="section-title">Досвід та практика</p>
+          <h2 class="headline">Напрями, з якими працюю</h2>
 
           <div class="experience-list">
             <article class="experience-card">
               <h3>OSINT-дослідження</h3>
-              <p>
-                Пошук і перевірка інформації з відкритих джерел, аналіз профілів,
-                доменів, електронних адрес, соціальних мереж та інших цифрових слідів.
-              </p>
+              <p>Пошук і перевірка інформації з відкритих джерел, аналіз профілів, доменів, електронних адрес, соціальних мереж та інших цифрових слідів.</p>
             </article>
 
             <article class="experience-card">
               <h3>Аналіз витоків даних</h3>
-              <p>
-                Базовий аналіз злитих наборів даних, перегляд структури записів, пошук
-                повторів, перевірка форматів електронних адрес, логінів та інших полів
-                у навчальних цілях.
-              </p>
+              <p>Базовий аналіз злитих наборів даних, перегляд структури записів, пошук повторів, перевірка форматів електронних адрес, логінів та інших полів у навчальних цілях.</p>
             </article>
 
             <article class="experience-card">
               <h3>Робота з даними</h3>
-              <p>
-                Опрацювання списків, сортування інформації, фільтрація записів, пошук
-                закономірностей та підготовка даних до подальшого аналізу.
-              </p>
+              <p>Опрацювання списків, сортування інформації, фільтрація записів, пошук закономірностей та підготовка даних до подальшого аналізу.</p>
             </article>
           </div>
         </section>
 
-        <footer class="footer">
-          <p>CV - Костюк Дмитро Васильович</p>
+        <section class="reviews-section">
+          <p class="section-title">Відгуки (Fetch API)</p>
+          <div id="reviews-container">
+            <p class="about-text">Завантаження відгуків...</p>
+          </div>
+        </section>
+
+        <footer>
+          <div class="footer-copy">© 2026 CV — Костюк Дмитро Васильович</div>
+          <p class="section-title">Системна інформація (LocalStorage)</p>
+          <div class="sysinfo-grid" id="sysinfo-container"></div>
         </footer>
       </main>
-    </article>
+    </div>
   </div>
+
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">&times;</button>
+      <h2>Зв'язок зі мною</h2>
+
+      <form action="https://formspree.io/f/xgorpbdw" method="POST">
+        <div class="form-group">
+          <label for="name">Ім'я</label>
+          <input id="name" type="text" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Номер телефону</label>
+          <input id="phone" type="tel" name="phone" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Повідомлення</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+
+        <button class="submit-btn" type="submit">Відправити</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const sysInfo = {
+      userAgent: navigator.userAgent,
+      platform: navigator.platform,
+      language: navigator.language
+    };
+
+    localStorage.setItem('sysInfo', JSON.stringify(sysInfo));
+
+    const savedSysInfo = JSON.parse(localStorage.getItem('sysInfo'));
+    const sysContainer = document.getElementById('sysinfo-container');
+
+    sysContainer.innerHTML = Object.entries(savedSysInfo).map(([key, value]) => `
+      <div class="sysinfo-item">
+        <h4>${key}</h4>
+        <p>${value}</p>
+      </div>
+    `).join('');
+
+    fetch('https://jsonplaceholder.typicode.com/posts/14/comments')
+      .then(response => response.json())
+      .then(comments => {
+        const reviewsContainer = document.getElementById('reviews-container');
+        reviewsContainer.innerHTML = comments.map(comment => `
+          <div class="review-card">
+            <div class="review-author">${comment.name}</div>
+            <div class="review-email">${comment.email}</div>
+            <div class="review-body">${comment.body}</div>
+          </div>
+        `).join('');
+      })
+      .catch(error => {
+        document.getElementById('reviews-container').innerHTML = '<p class="about-text">Помилка завантаження коментарів.</p>';
+        console.error('Fetch error:', error);
+      });
+
+    const modal = document.getElementById('contactModal');
+    const closeBtn = document.getElementById('closeModal');
+
+    setTimeout(() => {
+      modal.classList.add('active');
+    }, 60000);
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+
+    const htmlEl = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+
+    function setTheme(theme) {
+      htmlEl.setAttribute('data-theme', theme);
+      themeBtn.textContent = theme === 'day' ? 'Тема: денна ☀️' : 'Тема: нічна 🌙';
+    }
+
+    const currentHour = new Date().getHours();
+
+    if (currentHour >= 7 && currentHour < 21) {
+      setTheme('day');
+    } else {
+      setTheme('night');
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      setTheme(currentTheme === 'day' ? 'night' : 'day');
+    });
+  </script>
 </body>
 </html>

@@ -1,18 +1,18 @@
 function Languages() {
   return (
-    <section className="px-8 py-8">
-      <p className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-sky-300">
+    <section>
+      <h2 className="mb-5 text-sm font-bold uppercase tracking-widest text-indigo-500">
         Володіння мовами
-      </p>
+      </h2>
 
-      <ol className="space-y-3 pl-5 text-sm text-slate-200 marker:text-sky-300">
-        <li>
-          Українська <span className="text-slate-400">— рідна</span>
-        </li>
-        <li>
-          Англійська <span className="text-slate-400">— технічна</span>
-        </li>
-      </ol>
+      <div className="space-y-2 text-sm">
+        <p className="text-slate-700 dark:text-slate-200">
+          Українська — <span className="text-slate-400">рідна</span>
+        </p>
+        <p className="text-slate-700 dark:text-slate-200">
+          Англійська — <span className="text-slate-400">технічна</span>
+        </p>
+      </div>
     </section>
   );
 }

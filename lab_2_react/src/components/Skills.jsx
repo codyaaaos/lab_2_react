@@ -1,24 +1,48 @@
 function Skills() {
   return (
-    <section className="border-b border-slate-700 px-8 py-8">
-      <p className="mb-5 text-xs font-bold uppercase tracking-[0.22em] text-sky-300">
+    <section className="mb-8">
+      <h2 className="mb-5 text-sm font-bold uppercase tracking-widest text-indigo-500">
         Навички
-      </p>
+      </h2>
 
-      <ul className="space-y-3">
-        <li className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm leading-6 text-slate-200">
-          OSINT: пошук у відкритих джерелах, базова перевірка цифрових слідів
-        </li>
-        <li className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm leading-6 text-slate-200">
-          Бази даних: базове розуміння структури записів, фільтрація та аналіз даних
-        </li>
-        <li className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm leading-6 text-slate-200">
-          Інструменти: HTML, Git, GitHub, VS Code
-        </li>
-        <li className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm leading-6 text-slate-200">
-          Операційні системи: Windows, Linux
-        </li>
-      </ul>
+      <div className="space-y-5">
+        <div>
+          <p className="mb-3 text-xs font-semibold text-slate-700 dark:text-slate-200">
+            Інструменти
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <span className="rounded-full bg-white px-3 py-1 text-xs text-slate-500 ring-1 ring-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:ring-slate-600">
+              OSINT
+            </span>
+            <span className="rounded-full bg-white px-3 py-1 text-xs text-slate-500 ring-1 ring-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:ring-slate-600">
+              Git
+            </span>
+            <span className="rounded-full bg-white px-3 py-1 text-xs text-slate-500 ring-1 ring-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:ring-slate-600">
+              HTML
+            </span>
+            <span className="rounded-full bg-white px-3 py-1 text-xs text-slate-500 ring-1 ring-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:ring-slate-600">
+              CSS
+            </span>
+            <span className="rounded-full bg-white px-3 py-1 text-xs text-slate-500 ring-1 ring-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:ring-slate-600">
+              JS
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <p className="mb-3 text-xs font-semibold text-slate-700 dark:text-slate-200">
+            Середовище
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <span className="rounded-full bg-white px-3 py-1 text-xs text-slate-500 ring-1 ring-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:ring-slate-600">
+              Windows
+            </span>
+            <span className="rounded-full bg-white px-3 py-1 text-xs text-slate-500 ring-1 ring-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:ring-slate-600">
+              Linux
+            </span>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

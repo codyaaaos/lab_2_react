@@ -1,48 +1,52 @@
 function Experience() {
   return (
-    <section className="relative overflow-hidden px-8 py-10 md:px-12">
-      <div className="absolute right-0 top-0 h-56 w-56 translate-x-1/4 -translate-y-1/4 rounded-full bg-indigo-100 blur-3xl"></div>
+    <section className="mb-10">
+      <h2 className="mb-6 text-sm font-bold uppercase tracking-widest text-indigo-500">
+        Досвід та практика
+      </h2>
 
-      <div className="relative z-10">
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-indigo-500">
-          Досвід та практика
-        </p>
+      <div className="space-y-6 border-l border-slate-200 pl-6 dark:border-slate-700">
+        <div className="relative">
+          <span className="absolute -left-[31px] top-1 h-3 w-3 rounded-full border-2 border-slate-300 bg-white dark:border-slate-500 dark:bg-slate-900"></span>
+          <p className="mb-1 text-[11px] uppercase tracking-wider text-slate-400">
+            OSINT
+          </p>
+          <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
+            OSINT-дослідження
+          </h3>
+          <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">
+            Пошук і перевірка інформації з відкритих джерел, аналіз профілів,
+            доменів, електронних адрес, соціальних мереж та інших цифрових слідів.
+          </p>
+        </div>
 
-        <h2 className="mb-8 text-3xl font-black text-slate-900">
-          Напрями, з якими працюю
-        </h2>
+        <div className="relative">
+          <span className="absolute -left-[31px] top-1 h-3 w-3 rounded-full border-2 border-slate-300 bg-white dark:border-slate-500 dark:bg-slate-900"></span>
+          <p className="mb-1 text-[11px] uppercase tracking-wider text-slate-400">
+            Бази даних
+          </p>
+          <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
+            Аналіз витоків даних
+          </h3>
+          <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">
+            Базовий аналіз злитих наборів даних, перегляд структури записів, пошук
+            повторів, перевірка форматів електронних адрес, логінів та інших полів
+            у навчальних цілях.
+          </p>
+        </div>
 
-        <div className="grid gap-5">
-          <article className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-            <h3 className="mb-3 text-2xl font-extrabold text-slate-900">
-              OSINT-дослідження
-            </h3>
-            <p className="text-base leading-7 text-slate-600">
-              Пошук і перевірка інформації з відкритих джерел, аналіз профілів,
-              доменів, електронних адрес, соціальних мереж та інших цифрових слідів.
-            </p>
-          </article>
-
-          <article className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-            <h3 className="mb-3 text-2xl font-extrabold text-slate-900">
-              Аналіз витоків даних
-            </h3>
-            <p className="text-base leading-7 text-slate-600">
-              Базовий аналіз злитих наборів даних, перегляд структури записів, пошук
-              повторів, перевірка форматів електронних адрес, логінів та інших полів
-              у навчальних цілях.
-            </p>
-          </article>
-
-          <article className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-            <h3 className="mb-3 text-2xl font-extrabold text-slate-900">
-              Робота з даними
-            </h3>
-            <p className="text-base leading-7 text-slate-600">
-              Опрацювання списків, сортування інформації, фільтрація записів, пошук
-              закономірностей та підготовка даних до подальшого аналізу.
-            </p>
-          </article>
+        <div className="relative">
+          <span className="absolute -left-[31px] top-1 h-3 w-3 rounded-full border-2 border-slate-300 bg-white dark:border-slate-500 dark:bg-slate-900"></span>
+          <p className="mb-1 text-[11px] uppercase tracking-wider text-slate-400">
+            Дані
+          </p>
+          <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
+            Робота з даними
+          </h3>
+          <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">
+            Опрацювання списків, сортування інформації, фільтрація записів, пошук
+            закономірностей та підготовка даних до подальшого аналізу.
+          </p>
         </div>
       </div>
     </section>
